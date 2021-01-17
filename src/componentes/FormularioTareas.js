@@ -26,6 +26,7 @@ const handleSubmit = (e) =>{
       }
       
     ]);
+    cambiarInputTareas('')
 }
 
   return (

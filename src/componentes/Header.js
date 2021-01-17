@@ -14,8 +14,8 @@ const Header = ({mostrarCompletadas, setMostrarCompletadas}) => {
       { mostrarCompletadas ? 
       <button 
       className="header__boton"
-      onClick={()=> toggleCompletadas()}
-      >No Mostrar Completadas
+      onClick={()=> toggleCompletadas()}>
+        No Mostrar Completadas
         <FontAwesomeIcon 
         icon={faEyeSlash} 
         className="header__icono-boton"
@@ -25,8 +25,8 @@ const Header = ({mostrarCompletadas, setMostrarCompletadas}) => {
     :
     <button 
     className="header__boton"
-    onClick={()=> toggleCompletadas()}
-    >Mostrar Completadas
+    onClick={()=> toggleCompletadas()}>
+      Mostrar Completadas
       <FontAwesomeIcon 
       icon={faEye} 
       className="header__icono-boton"
