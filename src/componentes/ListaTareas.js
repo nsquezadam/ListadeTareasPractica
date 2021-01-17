@@ -13,7 +13,24 @@ const ListaTareas = ({tareas, cambiarTareas }) => {
       return tarea
     }))
   }
-
+  const editarTarea= (id, nuevaTexto) => {
+    // console.log('estamos editando la tarea con id', id)
+    cambiarTareas(tareas.map( (tarea) => {
+      if(tarea.id === id){
+        return {...tarea, texto: nuevaTexto} 
+      }
+      return tarea
+    }))
+  }
+  const borrarTarea =(id) =>{
+    cambiarTareas(tareas.filter((tarea) =>{
+      if(tarea.id !== id){
+        return tarea;
+      }
+      return;
+    }))
+  }
+  
 
 
   return (
@@ -23,6 +40,8 @@ const ListaTareas = ({tareas, cambiarTareas }) => {
         key={tarea.id}
         tarea={tarea}
         toggleCompletada={toggleCompletada}
+        editarTarea={editarTarea}
+        borrarTarea={borrarTarea}
          />
       })
       : <div className="lista-tareas__mensaje">No hay tareas Agreagadas</div>
