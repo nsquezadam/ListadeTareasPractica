@@ -21,9 +21,10 @@ const handleSubmit = (e) =>{
     [...tareas,
       {
         id:uuidv4(),
-        texto:'nueva tarea',
+        texto:inputTarea,
         completada:false
       }
+      
     ]);
 }
 

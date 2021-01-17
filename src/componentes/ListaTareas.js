@@ -1,7 +1,7 @@
 import React from 'react'
 import Tarea from './Tarea'
 
-const ListaTareas = ({tareas, cambiarTareas }) => {
+const ListaTareas = ({tareas, cambiarTareas, mostrarCompletadas }) => {
 
 
   const toggleCompletada= (id) => {
@@ -27,6 +27,7 @@ const ListaTareas = ({tareas, cambiarTareas }) => {
       if(tarea.id !== id){
         return tarea;
       }
+      // eslint-disable-next-line array-callback-return
       return;
     }))
   }
@@ -36,6 +37,7 @@ const ListaTareas = ({tareas, cambiarTareas }) => {
   return (
     <ul className="lista-tareas">
       {tareas.length > 0 ?   tareas.map( (tarea )=>{
+        if(mostrarCompletadas){
         return <Tarea 
         key={tarea.id}
         tarea={tarea}
@@ -43,6 +45,18 @@ const ListaTareas = ({tareas, cambiarTareas }) => {
         editarTarea={editarTarea}
         borrarTarea={borrarTarea}
          />
+         //si la tarea no esta completada
+        }else if (!tarea.completada){
+          return <Tarea 
+          key={tarea.id}
+          tarea={tarea}
+          toggleCompletada={toggleCompletada}
+          editarTarea={editarTarea}
+          borrarTarea={borrarTarea} />
+        }
+        // si ya esta completada  no la devolvemos
+        // eslint-disable-next-line array-callback-return
+        return;
       })
       : <div className="lista-tareas__mensaje">No hay tareas Agreagadas</div>
     }

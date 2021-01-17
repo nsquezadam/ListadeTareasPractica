@@ -22,12 +22,18 @@ const [tareas, cambiarTareas] = useState(
 
 ])
 
+const [mostrarCompletadas, setMostrarCompletadas] = useState(true)
+
 console.log(tareas)
   return (
     <div className="contenedor">
-     <Header />
+     <Header mostrarCompletadas={mostrarCompletadas} setMostrarCompletadas={setMostrarCompletadas}/>
      <FormularioTareas  tareas={tareas} cambiarTareas={cambiarTareas}/>
-     <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas}/>
+     <ListaTareas 
+     tareas={tareas} 
+     cambiarTareas={cambiarTareas}
+     mostrarCompletadas={mostrarCompletadas}
+     />
     </div>
   );
 }
